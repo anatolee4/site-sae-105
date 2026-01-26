@@ -42,7 +42,67 @@
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center;/* Grille et Cartes Produits */
+.produits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.produit-card {
+    background: #fff;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border-radius: 15px; /* Bords arrondis esthétiques */
+    border: 1px solid #eee;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Animation au survol : changement d'image */
+.produit-card .img-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 15px;
+}
+
+.produit-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: opacity 0.4s ease;
+}
+
+.produit-card .img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.produit-card:hover .img-main {
+    opacity: 0;
+}
+
+.produit-card:hover .img-hover {
+    opacity: 1;
+}
+
+.produit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-color: #3498db;
+}
+
+.produit-card h3 { color: #2c3e50; margin: 10px 0; font-size: 1.2rem; }
+.produit-card .prix { color: #e74c3c; font-weight: bold; font-size: 1.3rem; }
     align-items: center;
     opacity: 0;
     transition: opacity 0.3s ease;

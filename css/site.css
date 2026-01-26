@@ -1,9 +1,9 @@
-/* Base & Layout */
+/* Reset et Base */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { height: 100%; }
-body { font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; }
+body { font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; background-color: #ffffff; }
 
-/* Header Transparent */
+/* Header Fixe et Transparent */
 header {
     background-color: rgba(44, 62, 80, 0.9);
     backdrop-filter: blur(10px);
@@ -17,33 +17,36 @@ header {
 }
 
 /* Menu Burger */
-.burger-icon { cursor: pointer; font-size: 1.8rem; z-index: 2100; }
+.burger-icon { cursor: pointer; font-size: 2rem; z-index: 2100; }
 #menu-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5); display: none; z-index: 1800;
+    background: rgba(0,0,0,0.6); display: none; z-index: 1800;
 }
 nav {
     position: fixed; top: 0; left: -300px; width: 300px; height: 100%;
     background-color: #2c3e50; transition: 0.4s; padding-top: 80px; z-index: 1900;
 }
 nav.active { left: 0; }
-nav ul li a { display: block; padding: 1.2rem 2rem; color: white; text-decoration: none; }
-nav ul li a:hover { background: #3498db; padding-left: 2.5rem; }
+nav ul { list-style: none; }
+nav ul li a { display: block; padding: 1.2rem 2rem; color: white; text-decoration: none; border-bottom: 1px solid #34495e; }
+nav ul li a:hover { background: #3498db; }
 
-/* Accueil & Bannière */
+/* Contenu Principal */
+main { flex: 1 0 auto; padding-top: 0; } /* Padding-top 0 car la bannière est en haut */
+
+/* Bannière Accueil */
 .banner-home {
-    width: 100%;
-    height: 85vh; /* Laisse apparaître le bas de la page */
-    background: url('img/banner.jpg') no-repeat center center/cover;
+    width: 100%; height: 65vh;
+    background: url('../img/banner.jpg') no-repeat center center/cover;
 }
 
 /* Bouton Voir Plus */
 .btn-voir-plus {
-    display: block; width: 200px; margin: 2rem auto; padding: 1rem;
+    display: block; width: 250px; margin: 3rem auto; padding: 1rem;
     background: #2c3e50; color: white; text-align: center;
-    text-decoration: none; border-radius: 30px; transition: 0.3s;
+    text-decoration: none; border-radius: 30px; font-weight: bold; transition: 0.3s;
 }
 .btn-voir-plus:hover { background: #3498db; transform: scale(1.05); }
 
 /* Footer */
-footer { background: #2c3e50; color: white; padding: 2rem; text-align: center; margin-top: auto; }
+footer { flex-shrink: 0; background: #2c3e50; color: white; padding: 2rem; text-align: center; }
