@@ -1,41 +1,27 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>MechaLab - Accueil</title>
-    <link rel="stylesheet" href="css/site.css">
-    <link rel="stylesheet" href="css/catalogue.css">
-</head>
-<body>
-    <?php include('include/entete.php'); ?>
-    <?php include('include/menu.php'); ?>
-    
-    <main>
-        <div class="banner-home"></div>
+<section id="nouvelle-collection" style="padding: 4rem 2rem;">
+    <h2 style="text-align: center; margin-bottom: 2rem;">NOUVELLE COLLECTION</h2>
+    <div class="produits-grid">
+        <?php
+        $top4 = [
+            ["Titan Écarlate", 149.99, "img/produit4.png"],
+            ["Paladin Doré", 169.99, "img/produit8.png"],
+            ["Ombre Nocturne", 144.99, "img/produit12.png"],
+            ["Nébuleuse Pourpre", 155.00, "img/produit13.png"]
+        ];
 
-        <section id="nouvelle-collection" style="padding: 4rem 2rem;">
-            <h2 style="text-align: center; margin-bottom: 2rem;">NOUVELLE COLLECTION</h2>
-            <div class="produits-grid">
-                <div class="produit-card" onclick="location.href='produit.php?Nom=Titan%20Écarlate&Prix=149.99&Image=img/produit4.png'">
-                    <img src="img/produit4.png">
-                    <h3>Titan Écarlate</h3>
-                    <p class="prix">149,99 €</p>
+        foreach ($top4 as $p) {
+            echo '
+            <div class="produit-card" onclick="location.href=\'produit.php?Nom='.urlencode($p[0]).'&Prix='.$p[1].'&Image='.$p[2].'\'">
+                <img src="'.$p[2].'">
+                <div class="size-overlay">
+                    <strong>Tailles disponibles</strong>
+                    <p>1/144 | 1/100 | 1/60</p>
                 </div>
-                <div class="produit-card" onclick="location.href='produit.php?Nom=Ombre%20Nocturne&Prix=144.99&Image=img/produit12.png'">
-                    <img src="img/produit12.png">
-                    <h3>Ombre Nocturne</h3>
-                    <p class="prix">144,99 €</p>
-                </div>
-                <div class="produit-card" onclick="location.href='produit.php?Nom=Paladin%20Doré&Prix=169.99&Image=img/produit8.png'">
-                    <img src="img/produit8.png">
-                    <h3>Paladin Doré</h3>
-                    <p class="prix">169,99 €</p>
-                </div>
-            </div>
-            <a href="nouvelle-collection.php" class="btn-voir-plus">VOIR PLUS</a>
-        </section>
-    </main>
-
-    <?php include('include/pied-de-page.php'); ?>
-</body>
-</html>
+                <h3>'.$p[0].'</h3>
+                <p class="prix">'.number_format($p[1], 2, ',', ' ').' €</p>
+            </div>';
+        }
+        ?>
+    </div>
+    <a href="nouvelle-collection.php" class="btn-voir-plus">VOIR TOUTE LA COLLECTION</a>
+</section>
