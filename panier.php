@@ -1,0 +1,86 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['panier'])) {
+    $_SESSION['panier'] = [];
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['nom']) && isset($_POST['prix']) && isset($_POST['image']) && isset($_POST['taille'])) {
+        $produit = [
+            'nom' => $_POST['nom'],
+            'prix' => floatval($_POST['prix']),
+            'image' => $_POST['image'],
+            'taille' => $_POST['taille']
+        ];
+        $_SESSION['panier'][] = $produit;
+    }
+    
+    if (isset($_POST['supprimer'])) {
+        $index = intval($_POST['supprimer']);
+        if (isset($_SESSION['panier'][$index])) {
+            unset($_SESSION['panier'][$index]);
+            $_SESSION['panier'] = array_values($_SESSION['panier']);
+        }
+    }
+}
+
+$total = 0;
+foreach ($_SESSION['panier'] as $item) {
+    $total += $item['prix'];
+}
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gunpla France - Panier</title>
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/panier.css">
+</head>
+<body>
+    <?php include('include/entete.php'); ?>
+    <?php include('include/menu.php'); ?>
+    
+    <main>
+        <h2>Votre Panier</h2>
+        
+        <?php if (empty($_SESSION['panier'])): ?>
+            <div class="panier-vide">
+                <p>Votre panier est vide.</p>
+                <a href="catalogue.php" class="btn-continuer">Continuer vos achats</a>
+            </div>
+        <?php else: ?>
+            <div class="panier-liste">
+                <?php foreach ($_SESSION['panier'] as $index => $produit): ?>
+                    <div class="panier-item">
+                        <div class="item-image">
+                            <img src="<?php echo htmlspecialchars($produit['image']); ?>" alt="<?php echo htmlspecialchars($produit['nom']); ?>">
+                        </div>
+                        <div class="item-details">
+                            <h3><?php echo htmlspecialchars($produit['nom']); ?></h3>
+                            <p class="item-taille">Échelle : <?php echo htmlspecialchars($produit['taille']); ?></p>
+                            <p class="item-prix"><?php echo number_format($produit['prix'], 2, ',', ' '); ?> €</p>
+                        </div>
+                        <div class="item-actions">
+                            <form method="POST" action="panier.php">
+                                <input type="hidden" name="supprimer" value="<?php echo $index; ?>">
+                                <button type="submit" class="btn-supprimer">Supprimer</button>
+                            </form>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            
+            <div class="panier-total">
+                <h3>Total : <?php echo number_format($total, 2, ',', ' '); ?> €</h3>
+                <button class="btn-payer" onclick="alert('Fonctionnalité de paiement à venir')">Payer la commande</button>
+                <a href="catalogue.php" class="btn-continuer-achats">Continuer vos achats</a>
+            </div>
+        <?php endif; ?>
+    </main>
+
+    <?php include('include/pied-de-page.php'); ?>
+</body>
+</html>
