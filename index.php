@@ -5,23 +5,19 @@
     <title>MechaLab - Accueil</title>
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/catalogue.css">
-    <style>
-        .banner-home {
-            width: 100%;
-            height: 65vh; /* Laisse apparaître le bas de la page */
-            background: url('img/banner.jpg') no-repeat center center/cover;
-        }
-    </style>
 </head>
 <body>
     <?php include('include/entete.php'); ?>
     <?php include('include/menu.php'); ?>
     
     <main>
-        <div class="banner-home"></div>
+        <div class="banner-home" style="width: 100%; height: 60vh; background: url('img/banner.jpg') no-repeat center center/cover; border-bottom: 5px solid #e74c3c;"></div>
 
-        <section id="nouvelle-collection" style="padding: 4rem 2rem;">
-            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">NOUVELLE COLLECTION</h2>
+        <section style="padding: 4rem 2rem;">
+            <h2 style="text-align: center; margin-bottom: 3rem; color: #1a1a1a; letter-spacing: 2px;">
+                <span style="border-bottom: 3px solid #e74c3c; padding-bottom: 10px;">NOUVELLE COLLECTION</span>
+            </h2>
+            
             <div class="produits-grid">
                 <?php
                 $top4 = [
@@ -35,15 +31,16 @@
                     echo "
                     <div class='produit-card' onclick=\"location.href='produit.php?Nom=".urlencode($p[0])."&Prix=$p[1]&Image=$p[2]'\">
                         <div class='image-container'>
-                            <img src='{$p[2]}' class='img-main' alt='{$p[0]}'>
-                            <img src='{$p[3]}' class='img-hover' alt='{$p[0]} Détail'>
+                            <img src='{$p[2]}' class='img-main'>
+                            <img src='{$p[3]}' class='img-hover'>
                         </div>
-                        <h3>{$p[0]}</h3>
+                        <h3 style='color:#1a1a1a;'>{$p[0]}</h3>
                         <p class='prix'>".number_format($p[1], 2, ',', ' ')." €</p>
                     </div>";
                 }
                 ?>
             </div>
+
             <a href="nouvelle-collection.php" class="btn-voir-plus">VOIR TOUTE LA COLLECTION</a>
         </section>
     </main>

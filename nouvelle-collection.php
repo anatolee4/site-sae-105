@@ -11,7 +11,7 @@
     <?php include('include/menu.php'); ?>
     
     <main style="padding-top: 100px;">
-        <h2 style="text-align: center; margin-bottom: 40px;">TOUTES NOS NOUVEAUTÉS</h2>
+        <h2 style="text-align: center; margin-bottom: 40px;">NOUVELLE COLLECTION</h2>
         <div class="produits-grid">
             <?php
             $nouveautes = [
