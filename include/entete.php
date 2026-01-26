@@ -1,17 +1,15 @@
 <header>
-    <div class="burger-icon" id="burger-btn" onclick="toggleMenu()">
+    <div class="burger-icon" onclick="toggleMenu()">
         <span id="burger-symbol">☰</span>
     </div>
 
     <div class="logo-central">
-        <a href="index.php">
-            <img src="img/logo.png" alt="MechaLab">
-        </a>
+        <a href="index.php"><img src="img/logo.png" alt="MechaLab"></a>
     </div>
 
     <div class="panier-link">
         <a href="panier.php">
-            <img src="img/cart-icon.png" alt="Panier" style="width:22px; filter: brightness(0) invert(1);"> 
+            <img src="img/cart-icon.png" alt="Panier" style="width:18px; filter: invert(1);"> 
             <span>Panier</span>
         </a>
     </div>
@@ -29,12 +27,18 @@ function toggleMenu() {
     
     if (nav.classList.contains('active')) {
         overlay.style.display = 'block';
-        symbol.innerHTML = '✕'; 
-        document.body.style.overflow = 'hidden'; // Empêche le scroll quand ouvert
+        symbol.innerHTML = '✕';
     } else {
         overlay.style.display = 'none';
         symbol.innerHTML = '☰';
-        document.body.style.overflow = 'auto';
     }
 }
+
+// Correctif : Fermer le menu au clic sur un lien
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        const nav = document.querySelector('nav');
+        if(nav.classList.contains('active')) toggleMenu();
+    });
+});
 </script>

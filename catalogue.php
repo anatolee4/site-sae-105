@@ -2,7 +2,6 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MechaLab - Catalogue</title>
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/catalogue.css">
@@ -11,8 +10,8 @@
     <?php include('include/entete.php'); ?>
     <?php include('include/menu.php'); ?>
     
-    <main style="padding: 120px 2rem 5rem 2rem;">
-        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">NOTRE CATALOGUE</h2>
+    <main style="padding-top: 100px;">
+        <h2 style="text-align: center; margin-bottom: 30px;">NOTRE CATALOGUE</h2>
         <div class="produits-grid">
             <?php
             $produits = [
@@ -32,8 +31,14 @@
 
             foreach ($produits as $p) {
                 echo '
-                <div class="produit-card" onclick="window.location.href=\'produit.php?Nom='.urlencode($p[0]).'&Prix='.$p[1].'&Image='.$p[2].'\'">
+                <div class="produit-card" onclick="location.href=\'produit.php?Nom='.urlencode($p[0]).'&Prix='.$p[1].'&Image='.$p[2].'\'">
                     <img src="'.$p[2].'" alt="'.$p[0].'">
+                    <div class="size-overlay">
+                        <strong>Tailles disponibles :</strong>
+                        <p>1/144 Standard</p>
+                        <p>1/100 Master Grade</p>
+                        <p>1/60 Perfect Grade</p>
+                    </div>
                     <h3>'.$p[0].'</h3>
                     <p class="prix">'.number_format($p[1], 2, ',', ' ').' €</p>
                 </div>';

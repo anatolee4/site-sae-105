@@ -1,4 +1,4 @@
-/* Reset et Base */
+/* Base */
 * {
     margin: 0;
     padding: 0;
@@ -10,17 +10,16 @@ html, body {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
-    color: #333;
 }
 
-/* Header Fixe et Transparent */
+/* Header & Navigation */
 header {
-    background-color: rgba(44, 62, 80, 0.8);
-    backdrop-filter: blur(10px);
+    background-color: rgba(44, 62, 80, 0.85);
+    backdrop-filter: blur(8px);
     color: white;
     padding: 0 2rem;
     display: flex;
@@ -30,16 +29,13 @@ header {
     top: 0;
     width: 100%;
     z-index: 2000;
-    height: 80px;
+    height: 70px;
 }
 
-/* Menu Burger et Overlay */
 .burger-icon {
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1.8rem;
     z-index: 2100;
-    user-select: none;
-    width: 40px;
 }
 
 #menu-overlay {
@@ -48,7 +44,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0,0,0,0.5);
     display: none;
     z-index: 1800;
 }
@@ -56,85 +52,59 @@ header {
 nav {
     position: fixed;
     top: 0;
-    left: -320px;
-    width: 320px;
+    left: -300px;
+    width: 300px;
     height: 100%;
     background-color: #2c3e50;
-    transition: left 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-    padding-top: 100px;
+    transition: left 0.4s ease;
+    padding-top: 80px;
     z-index: 1900;
-    box-shadow: 5px 0 15px rgba(0,0,0,0.3);
 }
 
-nav.active {
-    left: 0;
-}
-
-nav ul {
-    list-style: none;
-}
+nav.active { left: 0; }
 
 nav ul li a {
     display: block;
-    padding: 1.5rem 2.5rem;
+    padding: 1.2rem 2rem;
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    border-left: 0 solid #3498db;
+    transition: 0.3s;
 }
 
 nav ul li a:hover {
-    background-color: #34495e;
-    padding-left: 3.5rem;
-    border-left: 8px solid #3498db;
-    color: #3498db;
+    background: #3498db;
+    padding-left: 2.5rem;
 }
 
-/* Logo et Panier */
-.logo-central {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.logo-central img {
-    height: 60px;
-    transition: transform 0.3s;
-}
-
-.logo-central img:hover {
-    transform: scale(1.1);
-}
+/* Logo & Panier */
+.logo-central img { height: 50px; }
 
 .panier-link a {
     color: white;
     text-decoration: none;
     background-color: #e74c3c;
-    padding: 0.6rem 1.2rem;
-    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    transition: background 0.3s;
+    gap: 8px;
 }
 
-.panier-link a:hover {
-    background-color: #c0392b;
+/* Bannière Accueil (Hauteur réduite) */
+.banner-home {
+    width: 100%;
+    height: 60vh; /* Hauteur réduite selon demande */
+    background: url('img/banner.jpg') no-repeat center center/cover;
 }
 
-/* Contenu Principal */
-main {
-    flex: 1 0 auto; /* Permet au contenu de pousser le footer vers le bas */
-}
-
-/* Footer bloqué en bas */
+/* Footer */
 footer {
     flex-shrink: 0;
     background-color: #2c3e50;
     color: white;
     padding: 2rem;
     text-align: center;
+    margin-top: auto;
 }
 
 footer ul {
@@ -145,11 +115,4 @@ footer ul {
     margin-top: 1rem;
 }
 
-footer a {
-    color: #bdc3c7;
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: white;
-}
+footer a { color: white; text-decoration: none; }

@@ -1,47 +1,64 @@
 .produits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 40px;
-    max-width: 1400px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1300px;
+    margin: auto;
 }
 
 .produit-card {
+    position: relative; /* Nécessaire pour l'overlay */
     background: #fff;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border: 1px solid #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    transition: 0.3s;
+    border-radius: 15px; /* Bords arrondis esthétiques */
+    border: 1px solid #eee;
+    overflow: hidden;
 }
 
 .produit-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    border-color: #3498db;
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .produit-card img {
     width: 100%;
-    height: 320px;
+    height: 280px;
     object-fit: cover;
-    margin-bottom: 20px;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 
-.produit-card h3 {
-    color: #2c3e50;
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* Overlay des Tailles au Hover */
+.size-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44, 62, 80, 0.7); /* Cadre transparent sombre */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.produit-card .prix {
-    color: #e74c3c;
-    font-weight: bold;
-    font-size: 1.5rem;
+.produit-card:hover .size-overlay {
+    opacity: 1;
 }
+
+.size-overlay p {
+    font-size: 0.9rem;
+    background: rgba(255,255,255,0.2);
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.produit-card h3 { margin: 15px 0 5px 0; color: #2c3e50; }
+.produit-card .prix { color: #e74c3c; font-weight: bold; }
