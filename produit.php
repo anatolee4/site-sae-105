@@ -1,5 +1,5 @@
 <?php
-$nom = $_REQUEST['Nom'] ?? 'Produit';
+$nom = $_REQUEST['Nom'] ?? 'Modèle Mecha';
 $prixBase = floatval($_REQUEST['Prix'] ?? 0);
 $image = $_REQUEST['Image'] ?? 'img/produit1.png';
 ?>
@@ -11,87 +11,92 @@ $image = $_REQUEST['Image'] ?? 'img/produit1.png';
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/catalogue.css">
     <style>
-        .carousel-container { position: relative; width: 100%; max-width: 500px; }
-        .carousel-slide { display: none; width: 100%; border-radius: 15px; }
-        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; }
-        .next { right: 0; } .prev { left: 0; }
+        .product-container { max-width: 1200px; margin: 100px auto 40px; padding: 20px; display: flex; gap: 30px; }
         
-        .section-details { max-width: 1200px; margin: 40px auto; padding: 20px; }
-        .reviews { margin-top: 50px; background: #f9f9f9; padding: 30px; border-radius: 15px; }
-        .review-item { border-bottom: 1px solid #ddd; padding: 15px 0; }
+        /* Galerie Verticale */
+        .gallery-vertical { display: flex; flex-direction: column; gap: 10px; }
+        .gallery-vertical img { width: 80px; height: 80px; object-fit: cover; cursor: pointer; border-radius: 5px; opacity: 0.6; transition: 0.3s; }
+        .gallery-vertical img:hover { opacity: 1; border: 2px solid #3498db; }
+        
+        .main-image-container { flex: 2; }
+        .main-image-container img { width: 100%; border-radius: 15px; }
+        
+        .info-panel { flex: 2; }
+        .availability { color: #27ae60; font-weight: bold; margin: 10px 0; }
+        
+        .tabs { margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px; }
+        .tech-sheet { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .tech-sheet td { padding: 10px; border-bottom: 1px solid #eee; }
+        .tech-sheet td:first-child { font-weight: bold; color: #7f8c8d; }
     </style>
 </head>
 <body>
     <?php include('include/entete.php'); ?>
     <?php include('include/menu.php'); ?>
     
-    <main style="padding-top: 100px;">
-        <div class="section-details" style="display: flex; gap: 50px; flex-wrap: wrap;">
-            <div class="carousel-container">
-                <img class="carousel-slide" src="<?php echo $image; ?>" style="display:block;">
-                <img class="carousel-slide" src="img/details1.png">
-                <img class="carousel-slide" src="img/details2.png">
-                <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
-                <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+    <main>
+        <div class="product-container">
+            <div class="gallery-vertical">
+                <img src="<?php echo $image; ?>" onclick="updateMainImage(this.src)">
+                <img src="img/details1.png" onclick="updateMainImage(this.src)">
+                <img src="img/details2.png" onclick="updateMainImage(this.src)">
+                <img src="img/details3.png" onclick="updateMainImage(this.src)">
             </div>
 
-            <div style="flex: 1; min-width: 300px;">
+            <div class="main-image-container">
+                <img id="main-view" src="<?php echo $image; ?>">
+            </div>
+
+            <div class="info-panel">
                 <h1><?php echo $nom; ?></h1>
-                <h2 id="display-prix" style="color: #e74c3c; margin: 20px 0;"><?php echo number_format($prixBase, 2); ?> €</h2>
+                <p class="availability">● En stock (Livraison sous 48h)</p>
+                <h2 id="display-prix"><?php echo number_format($prixBase, 2); ?> €</h2>
                 
-                <form action="panier.php" method="POST">
-                    <input type="hidden" name="prix" id="input-prix" value="<?php echo $prixBase; ?>">
-                    <select id="select-taille" onchange="updatePrice()" style="width: 100%; padding: 12px; margin-bottom: 20px;">
+                <form action="panier.php" method="POST" style="margin-top: 20px;">
+                    <select id="select-taille" onchange="updatePrice()" style="width: 100%; padding: 10px; margin-bottom: 15px;">
                         <option value="1/144" data-coef="1">1/144 Standard</option>
                         <option value="1/100" data-coef="1.5">1/100 Master Grade</option>
                         <option value="1/60" data-coef="2.5">1/60 Perfect Grade</option>
                     </select>
-                    <button type="submit" style="background:#2c3e50; color:white; width:100%; padding:15px; border:none; cursor:pointer; border-radius:5px;">AJOUTER AU PANIER</button>
+                    <button type="submit" style="background:#2c3e50; color:white; width:100%; padding:15px; border:none; cursor:pointer; border-radius:5px; font-weight:bold;">AJOUTER AU PANIER</button>
                 </form>
             </div>
         </div>
 
-        <div class="section-details">
-            <div class="reviews">
-                <h3>Avis clients (12)</h3>
-                <div class="review-item">
-                    <strong>Jean-Michel</strong> <span style="color:#f1c40f;">★★★★★</span>
-                    <p>Qualité exceptionnelle, le montage est un vrai plaisir.</p>
-                </div>
+        <div style="max-width: 1200px; margin: auto; padding: 20px;">
+            <div class="tabs">
+                <h3>Description</h3>
+                <p style="color:#555; line-height:1.6; margin: 15px 0;">Ce modèle MechaLab représente l'apogée de l'ingénierie robotique miniature. Conçu pour une pose dynamique, il possède plus de 40 points d'articulation et un squelette interne renforcé.</p>
+                
+                <h3>Fiche Technique</h3>
+                <table class="tech-sheet">
+                    <tr><td>Matériau</td><td>Plastique ABS & Polyrésine</td></tr>
+                    <tr><td>Nombre de pièces</td><td>~350 pièces</td></tr>
+                    <tr><td>Difficulté</td><td>Avancé (4/5)</td></tr>
+                    <tr><td>Temps de montage</td><td>6-8 heures</td></tr>
+                </table>
             </div>
-        </div>
 
-        <div class="section-details">
-            <h3>Vous aimerez aussi...</h3>
-            <div class="produits-grid">
-                <div class="produit-card" onclick="location.href='produit.php?Nom=Archer%20Vert&Prix=99.99&Image=img/produit7.png'">
-                    <img src="img/produit7.png">
-                    <h3>Archer Vert</h3>
-                </div>
-                <div class="produit-card" onclick="location.href='produit.php?Nom=Commandant%20Noir&Prix=159.99&Image=img/produit6.png'">
-                    <img src="img/produit6.png">
-                    <h3>Commandant Noir</h3>
+            <div style="margin-top: 50px; background:#f4f7f6; padding: 30px; border-radius: 15px;">
+                <h3>Avis de la communauté Mecha</h3>
+                <div style="margin-top:20px;">
+                    <p><strong>Marc R.</strong> ⭐⭐⭐⭐⭐ - "Impressionnant, les détails du torse sont dingues."</p><br>
+                    <p><strong>Sébastien L.</strong> ⭐⭐⭐⭐⭐ - "Livraison rapide et kit parfait."</p><br>
+                    <p><strong>Julie V.</strong> ⭐⭐⭐⭐ - "Un peu complexe pour un débutant, mais magnifique."</p>
                 </div>
             </div>
         </div>
     </main>
 
     <script>
-        let slideIndex = 0;
-        function changeSlide(n) {
-            let slides = document.getElementsByClassName("carousel-slide");
-            slides[slideIndex].style.display = "none";
-            slideIndex = (slideIndex + n + slides.length) % slides.length;
-            slides[slideIndex].style.display = "block";
-        }
-
+        function updateMainImage(src) { document.getElementById('main-view').src = src; }
+        
         function updatePrice() {
             const base = <?php echo $prixBase; ?>;
             const select = document.getElementById('select-taille');
             const coef = parseFloat(select.options[select.selectedIndex].getAttribute('data-coef'));
             const newPrice = (base * coef).toFixed(2);
             document.getElementById('display-prix').innerText = newPrice.replace('.', ',') + " €";
-            document.getElementById('input-prix').value = newPrice;
         }
     </script>
     <?php include('include/pied-de-page.php'); ?>
