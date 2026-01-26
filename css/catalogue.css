@@ -19,7 +19,7 @@
 .produit-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    border-color: #e74c3c;
+    border-color: #ff1900;
 }
 
 .image-container {
@@ -48,4 +48,4 @@
 .produit-card:hover .img-hover { opacity: 1; transform: scale(1.05); }
 
 .produit-card h3 { color: #1a1a1a; margin: 10px 0; font-size: 1.3rem; }
-.produit-card .prix { color: #e74c3c; font-weight: bold; font-size: 1.4rem; }
+.produit-card .prix { color: #ff1900; font-weight: bold; font-size: 1.4rem; }

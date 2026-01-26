@@ -23,13 +23,13 @@
     object-fit: cover;
     border-radius: 8px;
     cursor: pointer;
-    border: 2px solid #ccc;
+    border: 2px solid #ffffff;
     transition: 0.3s ease;
     background: #fff;
 }
 
 .gallery-vertical img:hover {
-    border-color: #e74c3c;
+    border-color: #ff1900;
     transform: scale(1.05);
 }
 
@@ -74,7 +74,7 @@
 
 .price-big {
     font-size: 3rem;
-    color: #e74c3c;
+    color: #ff1900;
     font-weight: bold;
     margin-bottom: 30px;
 }
@@ -90,8 +90,8 @@
 .form-select {
     width: 100%;
     padding: 15px;
-    background: #f4f4f4;
-    border: 1px solid #ccc;
+    background: #ffffff;
+    border: 1px solid #ffffff;
     border-radius: 8px;
     margin-bottom: 25px;
     font-size: 1.1rem;
@@ -103,7 +103,6 @@
     padding: 20px;
     background: #1a1a1a;
     color: white;
-    border: 2px solid #e74c3c;
     border-radius: 8px;
     font-weight: bold;
     font-size: 1.2rem;
@@ -113,8 +112,8 @@
 }
 
 .add-to-cart:hover {
-    background: #e74c3c;
-    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+   background: #ff1900; 
+   box-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
 }
 
 /* Sections Description et Avis */
@@ -133,7 +132,7 @@
 }
 
 .tabs-content h3 {
-    border-left: 6px solid #e74c3c;
+    border-left: 6px solid #ff1900;
     padding-left: 20px;
     margin-bottom: 20px;
     color: #1a1a1a;
@@ -160,7 +159,7 @@
 }
 
 .stars {
-    color: #e74c3c;
+    color: #ff1900;
     margin-left: 10px;
 }
 

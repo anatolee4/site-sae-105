@@ -73,7 +73,7 @@ main {
         }
 
         .item-prix {
-            color: #e74c3c;
+            color: #ff1900;
             font-size: 1.3rem;
             font-weight: bold;
         }
@@ -81,7 +81,7 @@ main {
 
     .item-actions {
         .btn-supprimer {
-            background-color: #e74c3c;
+            background-color: #ff1900;
             color: white;
             border: none;
             padding: 0.7rem 1.5rem;
@@ -91,7 +91,7 @@ main {
             transition: background-color 0.3s;
 
             &:hover {
-                background-color: #c0392b;
+                background-color: #ff1900;
             }
         }
     }

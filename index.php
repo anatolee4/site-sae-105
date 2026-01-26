@@ -11,11 +11,11 @@
     <?php include('include/menu.php'); ?>
     
     <main>
-        <div class="banner-home" style="width: 100%; height: 60vh; background: url('img/banner.jpg') no-repeat center center/cover; border-bottom: 5px solid #e74c3c;"></div>
+        <div class="banner-home" style="width: 100%; height: 60vh; background: url('img/banner.jpg') no-repeat center center/cover; "></div>
 
         <section style="padding: 4rem 2rem;">
             <h2 style="text-align: center; margin-bottom: 3rem; color: #1a1a1a; letter-spacing: 2px;">
-                <span style="border-bottom: 3px solid #e74c3c; padding-bottom: 10px;">NOUVELLE COLLECTION</span>
+                <span>NOUVELLE COLLECTION</span>
             </h2>
             
             <div class="produits-grid">
