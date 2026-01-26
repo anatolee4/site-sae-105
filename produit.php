@@ -1,14 +1,13 @@
 <?php
-$nom = isset($_REQUEST['Nom']) ? $_REQUEST['Nom'] : 'Produit';
-$prix = isset($_REQUEST['Prix']) ? $_REQUEST['Prix'] : '0';
-$image = isset($_REQUEST['Image']) ? $_REQUEST['Image'] : 'img/produit1.png';
+$nom = $_REQUEST['Nom'] ?? 'Produit';
+$prixBase = floatval($_REQUEST['Prix'] ?? 0);
+$image = $_REQUEST['Image'] ?? 'img/produit1.png';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gunpla France - <?php echo htmlspecialchars($nom); ?></title>
+    <title>MechaLab - <?php echo htmlspecialchars($nom); ?></title>
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/produit.css">
 </head>
@@ -16,51 +15,51 @@ $image = isset($_REQUEST['Image']) ? $_REQUEST['Image'] : 'img/produit1.png';
     <?php include('include/entete.php'); ?>
     <?php include('include/menu.php'); ?>
     
-    <main>
-        <div class="produit-details">
-            <div class="produit-image">
-                <img src="<?php echo htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($nom); ?>">
+    <main style="padding: 150px 2rem 5rem 2rem;">
+        <div class="produit-details" style="display: flex; gap: 60px; max-width: 1200px; margin: auto; flex-wrap: wrap;">
+            <div class="image-section" style="flex: 1; min-width: 300px;">
+                <img src="<?php echo $image; ?>" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
             </div>
             
-            <div class="produit-info">
-                <h2><?php echo htmlspecialchars($nom); ?></h2>
-                <p class="description">
-                    Ce modèle Gunpla exclusif représente le summum de la qualité et du design français. Avec ses articulations précises, ses détails minutieux et son système de montage innovant, ce kit offre une expérience de construction exceptionnelle. Les pièces en plastique haute qualité garantissent un assemblage parfait sans nécessiter de colle. Parfait pour les collectionneurs et les passionnés de maquettes.
-                </p>
-                <p class="description">
-                    Échelle 1/144, environ 180 pièces. Comprend des autocollants et une feuille de décalcomanies pour personnaliser votre modèle. Niveau de difficulté intermédiaire. Temps de montage estimé : 3-4 heures.
-                </p>
+            <div class="info-section" style="flex: 1; min-width: 300px;">
+                <h1 style="font-size: 2.5rem; color: #2c3e50; margin-bottom: 1rem;"><?php echo htmlspecialchars($nom); ?></h1>
+                <h2 id="display-prix" style="color: #e74c3c; font-size: 2rem; margin-bottom: 2rem;"><?php echo number_format($prixBase, 2, ',', ' '); ?> €</h2>
                 
-                <form action="panier.php" method="POST" class="form-achat">
+                <p style="margin-bottom: 2rem; line-height: 1.8;">Ce kit MechaLab exclusif offre une expérience de montage inégalée. Conçu pour les passionnés, il ne nécessite aucune colle et propose une articulation de haute précision.</p>
+
+                <form action="panier.php" method="POST">
                     <input type="hidden" name="nom" value="<?php echo htmlspecialchars($nom); ?>">
                     <input type="hidden" name="image" value="<?php echo htmlspecialchars($image); ?>">
+                    <input type="hidden" name="prix" id="input-prix" value="<?php echo $prixBase; ?>">
                     
-                    <div class="form-group">
-                        <label>Produit :</label>
-                        <span class="produit-nom"><?php echo htmlspecialchars($nom); ?></span>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Prix :</label>
-                        <span class="produit-prix"><?php echo htmlspecialchars($prix); ?> €</span>
-                        <input type="hidden" name="prix" value="<?php echo htmlspecialchars($prix); ?>">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="taille">Échelle :</label>
-                        <select name="taille" id="taille" required>
-                            <option value="">Choisir une échelle</option>
-                            <option value="1/144">1/144 (Standard)</option>
-                            <option value="1/100">1/100 (Master Grade)</option>
-                            <option value="1/60">1/60 (Perfect Grade)</option>
+                    <div style="margin-bottom: 2rem;">
+                        <label style="font-weight: bold; display: block; margin-bottom: 10px;">Choisir l'échelle :</label>
+                        <select name="taille" id="select-taille" onchange="updatePrice()" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+                            <option value="1/144" data-coef="1">1/144 - Standard</option>
+                            <option value="1/100" data-coef="1.5">1/100 - Master Grade (+50%)</option>
+                            <option value="1/60" data-coef="2.5">1/60 - Perfect Grade (+150%)</option>
                         </select>
                     </div>
                     
-                    <button type="submit" class="btn-ajouter">Ajouter au panier</button>
+                    <button type="submit" style="background: #2c3e50; color: white; padding: 20px; border: none; width: 100%; cursor: pointer; font-weight: bold; font-size: 1.1rem; border-radius: 5px; transition: background 0.3s;">
+                        AJOUTER AU PANIER
+                    </button>
                 </form>
             </div>
         </div>
     </main>
+
+    <script>
+    function updatePrice() {
+        const base = <?php echo $prixBase; ?>;
+        const select = document.getElementById('select-taille');
+        const coef = parseFloat(select.options[select.selectedIndex].getAttribute('data-coef'));
+        const newPrice = (base * coef).toFixed(2);
+        
+        document.getElementById('display-prix').innerText = newPrice.replace('.', ',') + " €";
+        document.getElementById('input-prix').value = newPrice;
+    }
+    </script>
 
     <?php include('include/pied-de-page.php'); ?>
 </body>

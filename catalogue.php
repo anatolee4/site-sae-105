@@ -11,28 +11,35 @@
     <?php include('include/entete.php'); ?>
     <?php include('include/menu.php'); ?>
     
-    <main style="padding: 2rem;">
-        <h2 style="text-align: center; margin-bottom: 2rem;">Notre Catalogue</h2>
+    <main style="padding: 120px 2rem 5rem 2rem;">
+        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">NOTRE CATALOGUE</h2>
         <div class="produits-grid">
-            <div class="produit-card" onclick="window.location.href='produit.php?Nom=Chevalier%20Lumière&Prix=89.99&Image=img/produit1.png'">
-                <img src="img/produit1.png" alt="Chevalier Lumière">
-                <h3>Chevalier Lumière</h3>
-                <p class="prix">89,99 €</p>
-            </div>
+            <?php
+            $produits = [
+                ["Chevalier Lumière", 89.99, "img/produit1.png"],
+                ["Garde Royal", 119.99, "img/produit2.png"],
+                ["Sentinelle Azur", 95.99, "img/produit3.png"],
+                ["Titan Écarlate", 149.99, "img/produit4.png"],
+                ["Lancier Blanc", 79.99, "img/produit5.png"],
+                ["Commandant Noir", 159.99, "img/produit6.png"],
+                ["Archer Vert", 99.99, "img/produit7.png"],
+                ["Paladin Doré", 169.99, "img/produit8.png"],
+                ["Guerrier Argent", 109.99, "img/produit9.png"],
+                ["Mirage Fantôme", 129.99, "img/produit10.png"],
+                ["Éclat Solaire", 134.99, "img/produit11.png"],
+                ["Ombre Nocturne", 144.99, "img/produit12.png"]
+            ];
 
-            <div class="produit-card" onclick="window.location.href='produit.php?Nom=Garde%20Royal&Prix=119.99&Image=img/produit2.png'">
-                <img src="img/produit2.png" alt="Garde Royal">
-                <h3>Garde Royal</h3>
-                <p class="prix">119,99 €</p>
-            </div>
-
-            <div class="produit-card" onclick="window.location.href='produit.php?Nom=Sentinelle%20Azur&Prix=95.99&Image=img/produit3.png'">
-                <img src="img/produit3.png" alt="Sentinelle Azur">
-                <h3>Sentinelle Azur</h3>
-                <p class="prix">95,99 €</p>
-            </div>
-            
-            </div>
+            foreach ($produits as $p) {
+                echo '
+                <div class="produit-card" onclick="window.location.href=\'produit.php?Nom='.urlencode($p[0]).'&Prix='.$p[1].'&Image='.$p[2].'\'">
+                    <img src="'.$p[2].'" alt="'.$p[0].'">
+                    <h3>'.$p[0].'</h3>
+                    <p class="prix">'.number_format($p[1], 2, ',', ' ').' €</p>
+                </div>';
+            }
+            ?>
+        </div>
     </main>
 
     <?php include('include/pied-de-page.php'); ?>
