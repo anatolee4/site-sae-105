@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gunpla France - Accueil</title>
+    <title>MechaLab - Accueil</title>
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
@@ -12,26 +12,20 @@
     <?php include('include/menu.php'); ?>
     
     <main>
-        <section>
-            <h2>Bienvenue chez Gunpla France</h2>
-            <p>Découvrez notre collection exclusive de modèles Gunpla français aux concepts originaux et innovants. Chaque kit est soigneusement conçu pour offrir une expérience de montage unique, alliant la tradition japonaise du Gunpla à l'esprit créatif français.</p>
-            <p>Nos modèles se distinguent par leurs designs audacieux inspirés de l'histoire et de la culture française, avec des détails exceptionnels et une qualité de fabrication incomparable. Que vous soyez débutant ou collectionneur confirmé, vous trouverez chez nous le Gunpla parfait pour enrichir votre collection.</p>
-            <p>Plongez dans l'univers fascinant du maquettisme et donnez vie à des mechas extraordinaires avec nos kits exclusifs.</p>
-        </section>
+        <div class="banner">
+            <img src="img/banner.jpg" alt="Bienvenue chez MechaLab" style="width: 100%; height: auto; display: block;">
+        </div>
 
-        <section>
-            <h2>L'Art du Montage Gunpla</h2>
-            <p>Le montage de Gunpla est bien plus qu'un simple passe-temps, c'est un art qui demande patience, précision et créativité. Chaque pièce s'assemble avec soin pour créer une œuvre unique qui reflète votre passion et votre talent.</p>
-            <p>Nos kits incluent des instructions détaillées en français et ne nécessitent aucune colle, rendant l'expérience accessible à tous les niveaux. Du découpage des grappes au placement des décalcomanies, chaque étape vous rapproche de votre chef-d'œuvre personnel.</p>
-            <p>Rejoignez notre communauté de passionnés et partagez vos créations avec d'autres amateurs de Gunpla à travers la France.</p>
+        <section id="nouvelle-collection" style="padding: 2rem;">
+            <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2.5rem; color: #2c3e50;">Nouvelle Collection</h2>
             
-            <figure>
-                <video controls width="100%">
-                    <source src="videos/presentation.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéos.
-                </video>
-                <figcaption>Découvrez les techniques de montage et de personnalisation de nos modèles Gunpla exclusifs dans cette vidéo de démonstration complète.</figcaption>
-            </figure>
+            <div class="produits-grid">
+                <div class="produit-card" onclick="window.location.href='produit.php?Nom=Titan%20Écarlate&Prix=149.99&Image=img/produit4.png'">
+                    <img src="img/produit4.png" alt="Titan Écarlate">
+                    <h3>Titan Écarlate</h3>
+                    <p class="prix">149,99 €</p>
+                </div>
+                </div>
         </section>
     </main>
 

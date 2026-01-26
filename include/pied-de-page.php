@@ -1,6 +1,6 @@
 <footer>
     <div class="copyright">
-        &copy; 2025 Gunpla France - Tous droits réservés
+        &copy; 2026 MechaLab - Tous droits réservés
     </div>
     <div class="footer-menu">
         <ul>
