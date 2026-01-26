@@ -20,7 +20,7 @@
             <p>Siège social : 15 Rue de la République, 69002 Lyon, France</p>
             <p>Directeur de la publication : Jean Dupont</p>
             <p>Téléphone : +33 4 78 90 12 34</p>
-            <p>Email : contact@gunpla-france.fr</p>
+            <p>Email : contact@mechalab.fr</p>
         </section>
 
         <section>

@@ -1,48 +1,4 @@
-.produits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 20px;
-    max-width: 1300px;
-    margin: auto;
-}
-
-.produit-card {
-    position: relative; /* Nécessaire pour l'overlay */
-    background: #fff;
-    padding: 15px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 15px; /* Bords arrondis esthétiques */
-    border: 1px solid #eee;
-    overflow: hidden;
-}
-
-.produit-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.produit-card img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-/* Overlay des Tailles au Hover */
-.size-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(44, 62, 80, 0.7); /* Cadre transparent sombre */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;/* Grille et Cartes Produits */
+/* css/catalogue.css */
 .produits-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -54,45 +10,14 @@
 
 .produit-card {
     background: #fff;
+    border-radius: 15px; /* Bords arrondis esthétiques */
+    border: 1px solid #eee;
     padding: 15px;
     text-align: center;
     cursor: pointer;
     transition: all 0.4s ease;
-    border-radius: 15px; /* Bords arrondis esthétiques */
-    border: 1px solid #eee;
     overflow: hidden;
     position: relative;
-}
-
-/* Animation au survol : changement d'image */
-.produit-card .img-container {
-    position: relative;
-    width: 100%;
-    height: 300px;
-    margin-bottom: 15px;
-}
-
-.produit-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: opacity 0.4s ease;
-}
-
-.produit-card .img-hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-}
-
-.produit-card:hover .img-main {
-    opacity: 0;
-}
-
-.produit-card:hover .img-hover {
-    opacity: 1;
 }
 
 .produit-card:hover {
@@ -101,24 +26,49 @@
     border-color: #3498db;
 }
 
-.produit-card h3 { color: #2c3e50; margin: 10px 0; font-size: 1.2rem; }
-.produit-card .prix { color: #e74c3c; font-weight: bold; font-size: 1.3rem; }
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+/* Conteneur d'images pour l'effet de survol */
+.image-container {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
 }
 
-.produit-card:hover .size-overlay {
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+    display: block;
+}
+
+/* L'image de survol est masquée par défaut */
+.img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+/* Au survol : on masque la principale et on affiche la secondaire */
+.produit-card:hover .img-main {
+    opacity: 0;
+}
+
+.produit-card:hover .img-hover {
     opacity: 1;
 }
 
-.size-overlay p {
-    font-size: 0.9rem;
-    background: rgba(255,255,255,0.2);
-    padding: 5px 10px;
-    margin: 5px;
-    border-radius: 5px;
+.produit-card h3 {
+    color: #2c3e50;
+    margin: 15px 0 5px 0;
+    font-size: 1.2rem;
 }
 
-.produit-card h3 { margin: 15px 0 5px 0; color: #2c3e50; }
-.produit-card .prix { color: #e74c3c; font-weight: bold; }
+.produit-card .prix {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
