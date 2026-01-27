@@ -27,4 +27,5 @@
 
     <?php include('include/pied-de-page.php'); ?>
 </body>
+
 </html>
