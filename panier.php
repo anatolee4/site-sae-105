@@ -6,12 +6,12 @@ if (!isset($_SESSION['panier'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['nom']) && isset($_POST['prix']) && isset($_POST['image']) && isset($_POST['taille'])) {
+    if (isset($_POST['nom']) && isset($_POST['prix']) && isset($_POST['image'])) {
         $produit = [
             'nom' => $_POST['nom'],
             'prix' => floatval($_POST['prix']),
             'image' => $_POST['image'],
-            'taille' => $_POST['taille']
+            'taille' => $_POST['taille'] ?? '1/144'
         ];
         $_SESSION['panier'][] = $produit;
     }
@@ -35,7 +35,7 @@ foreach ($_SESSION['panier'] as $item) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gunpla France - Panier</title>
+    <title>MechaLab - Panier</title>
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/panier.css">
 </head>
@@ -44,12 +44,12 @@ foreach ($_SESSION['panier'] as $item) {
     <?php include('include/menu.php'); ?>
     
     <main>
-        <h2>Votre Panier</h2>
+        <h2>VOTRE PANIER</h2>
         
         <?php if (empty($_SESSION['panier'])): ?>
             <div class="panier-vide">
-                <p>Votre panier est vide.</p>
-                <a href="catalogue.php" class="btn-continuer">Continuer vos achats</a>
+                <p>Votre panier est actuellement vide.</p>
+                <a href="catalogue.php" class="btn-continuer">DÉCOUVRIR LE CATALOGUE</a>
             </div>
         <?php else: ?>
             <div class="panier-liste">
@@ -60,7 +60,7 @@ foreach ($_SESSION['panier'] as $item) {
                         </div>
                         <div class="item-details">
                             <h3><?php echo htmlspecialchars($produit['nom']); ?></h3>
-                            <p class="item-taille">Échelle : <?php echo htmlspecialchars($produit['taille']); ?></p>
+                            <p class="item-taille">ÉCHELLE : <?php echo htmlspecialchars($produit['taille']); ?></p>
                             <p class="item-prix"><?php echo number_format($produit['prix'], 2, ',', ' '); ?> €</p>
                         </div>
                         <div class="item-actions">
@@ -74,9 +74,11 @@ foreach ($_SESSION['panier'] as $item) {
             </div>
             
             <div class="panier-total">
-                <h3>Total : <?php echo number_format($total, 2, ',', ' '); ?> €</h3>
-                <button class="btn-payer" onclick="alert('Fonctionnalité de paiement à venir')">Payer la commande</button>
-                <a href="catalogue.php" class="btn-continuer-achats">Continuer vos achats</a>
+                <h3>TOTAL : <?php echo number_format($total, 2, ',', ' '); ?> €</h3>
+                <button class="btn-payer" onclick="alert('Redirection vers le paiement sécurisé...')">COMMANDER MAINTENANT</button>
+                <div style="margin-top: 1.5rem;">
+                    <a href="catalogue.php" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Continuer mes achats</a>
+                </div>
             </div>
         <?php endif; ?>
     </main>
