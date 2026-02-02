@@ -87,18 +87,11 @@ main { flex: 1 0 auto; }
 .btn-voir-plus:hover { background: #ff1900; box-shadow: 0 0 15px rgba(231, 76, 60, 0.4); }
 
 /* Footer */
-footer { 
-    flex-shrink: 0; background: #1a1a1a; color: white; 
-    padding: 2.5rem; text-align: center; 
-    
-}
+footer { background: #1a1a1a; padding: 20px 0; border-top: 1px solid #333; }
 
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-}
+.footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; color: #888; }
+.footer-menu { display: flex; list-style: none; gap: 20px; }
+.footer-menu a { color: white; text-decoration: none; text-transform: uppercase; font-size: 14px; }
+.footer-menu a:hover { color: #ff1900; }
 
 

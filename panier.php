@@ -1,30 +1,37 @@
 <?php
 session_start();
 
+// Initialisation du panier s'il n'existe pas
 if (!isset($_SESSION['panier'])) {
     $_SESSION['panier'] = [];
 }
 
+// Gestion des actions POST (Ajout et Suppression)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['nom']) && isset($_POST['prix']) && isset($_POST['image'])) {
-        $produit = [
-            'nom' => $_POST['nom'],
-            'prix' => floatval($_POST['prix']),
-            'image' => $_POST['image'],
-            'taille' => $_POST['taille'] ?? '1/144'
+    
+    // Cas 1 : Ajout d'un produit depuis produit.php
+    if (isset($_POST['nom']) && isset($_POST['prix'])) {
+        $nouveauProduit = [
+            'nom'    => $_POST['nom'],
+            'prix'   => floatval($_POST['prix']),
+            'image'  => $_POST['image'],
+            'taille' => $_POST['taille'] // L'option choisie dans le menu déroulant
         ];
-        $_SESSION['panier'][] = $produit;
+        $_SESSION['panier'][] = $nouveauProduit;
     }
     
+    // Cas 2 : Suppression d'un produit du panier
     if (isset($_POST['supprimer'])) {
         $index = intval($_POST['supprimer']);
         if (isset($_SESSION['panier'][$index])) {
             unset($_SESSION['panier'][$index]);
+            // Réindexation du tableau pour éviter les trous dans les clés
             $_SESSION['panier'] = array_values($_SESSION['panier']);
         }
     }
 }
 
+// Calcul du montant total du panier
 $total = 0;
 foreach ($_SESSION['panier'] as $item) {
     $total += $item['prix'];
@@ -35,7 +42,7 @@ foreach ($_SESSION['panier'] as $item) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MechaLab - Panier</title>
+    <title>MechaLab - Votre Panier</title>
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/panier.css">
 </head>
@@ -58,11 +65,13 @@ foreach ($_SESSION['panier'] as $item) {
                         <div class="item-image">
                             <img src="<?php echo htmlspecialchars($produit['image']); ?>" alt="<?php echo htmlspecialchars($produit['nom']); ?>">
                         </div>
+                        
                         <div class="item-details">
                             <h3><?php echo htmlspecialchars($produit['nom']); ?></h3>
-                            <p class="item-taille">ÉCHELLE : <?php echo htmlspecialchars($produit['taille']); ?></p>
+                            <p class="item-taille">MODÈLE : <?php echo htmlspecialchars($produit['taille']); ?></p>
                             <p class="item-prix"><?php echo number_format($produit['prix'], 2, ',', ' '); ?> €</p>
                         </div>
+                        
                         <div class="item-actions">
                             <form method="POST" action="panier.php">
                                 <input type="hidden" name="supprimer" value="<?php echo $index; ?>">

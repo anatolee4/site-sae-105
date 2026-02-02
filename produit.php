@@ -1,8 +1,8 @@
 <?php
-// Récupération des données du produit
-$nom = $_GET['Nom'] ?? 'Modèle Mecha';
-$prixBase = floatval($_GET['Prix'] ?? 0);
-$image = $_GET['Image'] ?? 'img/produit1.png';
+// Récupération dynamique des données du produit (Généricité)
+$nom = $_REQUEST['Nom'] ?? 'Modèle Mecha'; //
+$prixBase = floatval($_REQUEST['Prix'] ?? 0); //
+$image = $_REQUEST['Image'] ?? 'img/produit1.png'; //
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -21,14 +21,14 @@ $image = $_GET['Image'] ?? 'img/produit1.png';
     <main>
         <div class="product-main">
             <div class="gallery-vertical">
-                <img src="<?php echo $image; ?>" alt="Vue 1" onclick="updateLargeImage(this.src)">
+                <img src="<?php echo htmlspecialchars($image); ?>" alt="Vue 1" onclick="updateLargeImage(this.src)">
                 <img src="img/details1.png" alt="Vue 2" onclick="updateLargeImage(this.src)">
                 <img src="img/details2.png" alt="Vue 3" onclick="updateLargeImage(this.src)">
                 <img src="img/details3.png" alt="Vue 4" onclick="updateLargeImage(this.src)">
             </div>
 
             <div class="image-display">
-                <img id="main-view" src="<?php echo $image; ?>" alt="<?php echo htmlspecialchars($nom); ?>">
+                <img id="main-view" src="<?php echo htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($nom); ?>">
             </div>
 
             <div class="product-info">
@@ -42,7 +42,7 @@ $image = $_GET['Image'] ?? 'img/produit1.png';
                     <input type="hidden" name="prix" id="hidden-price" value="<?php echo $prixBase; ?>">
 
                     <label class="label-select">Choisir l'échelle :</label>
-                    <select class="form-select" id="size-selector" onchange="calculatePrice()">
+                    <select class="form-select" name="taille" id="size-selector" onchange="calculatePrice()">
                         <option value="1/144" data-coef="1">1/144 High Grade (Standard)</option>
                         <option value="1/100" data-coef="1.5">1/100 Master Grade (+50%)</option>
                         <option value="1/60" data-coef="2.5">1/60 Perfect Grade (+150%)</option>
@@ -63,11 +63,7 @@ $image = $_GET['Image'] ?? 'img/produit1.png';
                 <h3 class="title-margin">AVIS CLIENTS</h3>
                 <div class="review-card">
                     <strong>Arnaud B.</strong> <span class="stars">★★★★★</span>
-                    <p>"Design incroyable, le contraste entre le gris et le rouge est saisissant."</p>
-                </div>
-                <div class="review-card">
-                    <strong>Mélanie T.</strong> <span class="stars">★★★★☆</span>
-                    <p>"Très satisfaite, le montage est un pur plaisir. Livraison rapide."</p>
+                    <p>"Design incroyable, le montage est un pur plaisir."</p>
                 </div>
             </div>
         </div>
@@ -76,26 +72,23 @@ $image = $_GET['Image'] ?? 'img/produit1.png';
             <h3 class="suggestions-title">PRODUITS POUVANT VOUS INTÉRESSER</h3>
             <div class="produits-grid">
                 <?php
-                $catalogue = [
-                    ["Titan Écarlate", 149.99, "img/produit4.png", "img/produit4_hover.png"],
-                    ["Paladin Doré", 169.99, "img/produit8.png", "img/produit8_hover.png"],
-                    ["Ombre Nocturne", 144.99, "img/produit12.png", "img/produit12_hover.png"],
-                    ["Archer Vert", 99.99, "img/produit7.png", "img/produit7_hover.png"],
-                    ["Garde Royal", 119.99, "img/produit2.png", "img/produit2_hover.png"],
-                    ["Commandant Noir", 159.99, "img/produit6.png", "img/produit6_hover.png"]
-                ];
-                shuffle($catalogue); // Mélange aléatoire
+                include_once('include/fonctions.php');
+                $tousLesProduits = chargerProduits('tout');
+                shuffle($tousLesProduits); // Mélange pour la suggestion
+                
                 for($i = 0; $i < 4; $i++) {
-                    $p = $catalogue[$i];
-                    echo "
-                    <div class='produit-card' onclick=\"location.href='produit.php?Nom=".urlencode($p[0])."&Prix=$p[1]&Image=$p[2]'\">
-                        <div class='image-container'>
-                            <img src='{$p[2]}' class='img-main'>
-                            <img src='{$p[3]}' class='img-hover'>
-                        </div>
-                        <h3>{$p[0]}</h3>
-                        <p class='prix'>".number_format($p[1], 2, ',', ' ')." €</p>
-                    </div>";
+                    if (isset($tousLesProduits[$i])) {
+                        $p = $tousLesProduits[$i];
+                        echo "
+                        <div class='produit-card' onclick=\"location.href='produit.php?Nom=".urlencode($p['nom'])."&Prix={$p['prix']}&Image=".urlencode($p['image'])."'\">
+                            <div class='image-container'>
+                                <img src='{$p['image']}' class='img-main'>
+                                <img src='{$p['hover']}' class='img-hover'>
+                            </div>
+                            <h3>" . htmlspecialchars($p['nom']) . "</h3>
+                            <p class='prix'>".number_format($p['prix'], 2, ',', ' ')." €</p>
+                        </div>";
+                    }
                 }
                 ?>
             </div>
@@ -105,18 +98,19 @@ $image = $_GET['Image'] ?? 'img/produit1.png';
     <?php include('include/pied-de-page.php'); ?>
 
     <script>
-        // Met à jour l'image principale au clic sur une miniature
+        // Changement d'image principale
         function updateLargeImage(src) {
             document.getElementById('main-view').src = src;
         }
 
-        // Calcule le prix en fonction de l'échelle sélectionnée
+        // Calcul dynamique du prix avec les coefficients
         function calculatePrice() {
             const base = <?php echo $prixBase; ?>;
             const selector = document.getElementById('size-selector');
             const coef = parseFloat(selector.options[selector.selectedIndex].getAttribute('data-coef'));
             const finalPrice = (base * coef).toFixed(2);
             
+            // Mise à jour de l'affichage et du champ caché pour le panier
             document.getElementById('current-price').innerText = finalPrice.replace('.', ',') + " €";
             document.getElementById('hidden-price').value = finalPrice;
         }
