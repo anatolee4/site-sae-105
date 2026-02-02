@@ -86,3 +86,9 @@ main { flex: 1 0 auto; }
 }
 .btn-voir-plus:hover { background: #ff1900; box-shadow: 0 0 15px rgba(231, 76, 60, 0.4); }
 
+/* Footer */
+footer { 
+    flex-shrink: 0; background: #1a1a1a; color: white; 
+    padding: 2.5rem; text-align: center; 
+    
+}
