@@ -15,12 +15,12 @@
         <div class="produits-grid">
             <?php
             $nouveautes = [
-                ["Titan Écarlate", 149.99, "img/produit4.png", "img/produit4_hover.png"],
-                ["Paladin Doré", 169.99, "img/produit8.png", "img/produit8_hover.png"],
-                ["Ombre Nocturne", 144.99, "img/produit12.png", "img/produit12_hover.png"],
-                ["Nébuleuse Pourpre", 155.00, "img/produit13.png", "img/produit13_hover.png"],
-                ["Chasseur de Givre", 115.00, "img/produit14.png", "img/produit14_hover.png"],
-                ["Spectre de Fer", 139.99, "img/produit15.png", "img/produit15_hover.png"]
+                ["Titan Écarlate", 149.99, "img/produit1.png", "img/produit1_hover.png"],
+                ["Paladin Doré", 169.99, "img/produit1.png", "img/produit1_hover.png"],
+                ["Ombre Nocturne", 144.99, "img/produit1.png", "img/produit1_hover.png"],
+                ["Nébuleuse Pourpre", 155.00, "img/produit1.png", "img/produit1_hover.png"],
+                ["Chasseur de Givre", 115.00, "img/produit1.png", "img/produit1_hover.png"],
+                ["Spectre de Fer", 139.99, "img/produit1.png", "img/produit1_hover.png"]
             ];
 
             foreach ($nouveautes as $p) {
