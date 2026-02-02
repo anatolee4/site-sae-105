@@ -4,8 +4,10 @@
     <div class="burger-icon" onclick="toggleMenu()">☰</div>
 
     <div class="logo-central">
-        <a href="index.php">
-            <img src="img/logo.png" alt="MechaLab" style="height: 150px;"> </a>
+        <a href="index.php" class="logo-hover-container">
+            <img src="img/logo.png" alt="MechaLab" class="logo-img logo-main">
+            <img src="img/logo_alt.png" alt="MechaLab" class="logo-img logo-alt">
+        </a>
     </div>
 
     <div class="panier-link">
