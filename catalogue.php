@@ -10,7 +10,7 @@
     <?php include('include/entete.php'); ?>
     <?php include('include/menu.php'); ?>
     
-    <main style="padding-top: 100px;">
+    <main style="padding-top: 100px; margin-bottom: 40px;">
         <h2 style="text-align: center; margin-bottom: 40px;">NOTRE CATALOGUE COMPLET</h2>
         <div class="produits-grid">
             <?php
