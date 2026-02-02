@@ -10,10 +10,9 @@
     <?php include('include/menu.php'); ?>
     
     <main>
-        <div class="video-hero" style="width: 100%; height: 70vh; position: relative; overflow: hidden; background: #000;">
+        <div class="video-hero" style="width: 100%; height: 60vh; background: url('videos/presentation.mov') ; "></div>
             <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-                <source src="videos/presentation.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la lecture de vidéos.
+                <source src="videos/presentation.mov.zip" type="video/mov">
             </video>
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);"></div>
         </div>

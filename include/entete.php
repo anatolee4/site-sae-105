@@ -3,7 +3,7 @@
 
     <div class="logo-central">
         <a href="index.php">
-            <img src="img/logo.png" alt="MechaLab" style="height: 50px;">
+            <img src="img/logo.png" alt="MechaLab" style="height: 150px;">
         </a>
     </div>
 
