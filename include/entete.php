@@ -1,16 +1,16 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
 <header>
     <div class="burger-icon" onclick="toggleMenu()">☰</div>
 
     <div class="logo-central">
         <a href="index.php">
-            <img src="img/logo.png" alt="MechaLab" style="height: 150px;">
-        </a>
+            <img src="img/logo.png" alt="MechaLab" style="height: 150px;"> </a>
     </div>
 
     <div class="panier-link">
-        <a href="panier.php">
-            <img src="img/panier.webp" alt="Panier" class="panier-img">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add_shopping_cart" />
+        <a href="panier.php" class="panier-icon-link">
+            <span class="material-symbols-outlined">shopping_cart</span>
         </a>
     </div>
 </header>

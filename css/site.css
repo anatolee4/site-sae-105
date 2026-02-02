@@ -94,4 +94,22 @@ footer { background: #1a1a1a; padding: 20px 0; border-top: 1px solid #333; }
 .footer-menu a { color: white; text-decoration: none; text-transform: uppercase; font-size: 14px; }
 .footer-menu a:hover { color: #ff1900; }
 
+/* Style de l'icône de panier */
+.panier-icon-link {
+    text-decoration: none;
+    color: #ffffff; /* Couleur blanche pour contraster avec le header sombre */
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.panier-icon-link .material-symbols-outlined {
+    font-size: 35px; /* Taille de l'icône */
+}
+
+.panier-icon-link:hover {
+    color: #ff1900; /* Devient rouge MechaLab au survol */
+    transform: scale(1.1); /* Petit effet de zoom */
+}
+
 
