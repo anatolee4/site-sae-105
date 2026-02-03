@@ -1,133 +1,206 @@
-/* Reset et Base */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { height: 100%; }
-body { 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    display: flex; 
-    flex-direction: column; 
-    background-color: #ffffff; /* Gris clair */
-    color: #333; 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Header Fixe et Thème Sombre */
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: #9c9c9c;
+  color: #333;
+}
+
 header {
-    background-color: rgba(0, 0, 0, 0.7); 
-    
-    /* Effet de flou derrière l'entête (optionnel mais très esthétique) */
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    color: white;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0; width: 100%; height: 70px; z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: white;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 2000;
 }
 
-/* Menu Burger & Navigation */
-.burger-icon { 
-    cursor: pointer; 
-    font-size: 2rem; 
-    color: #ff1900; /* Rouge */
-    z-index: 2100; 
+.burger-icon {
+  cursor: pointer;
+  font-size: 2rem;
+  color: #ff1900;
+  z-index: 2100;
 }
 
 #menu-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.7); display: none; z-index: 1800;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 1800;
 }
 
 nav {
-    position: fixed; top: 0; left: -300px; width: 300px; height: 100%;
-    background-color: #1a1a1a; transition: 0.4s cubic-bezier(0.77,0.2,0.05,1.0); 
-    padding-top: 100px; z-index: 1900;
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #1a1a1a;
+  transition: 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
+  padding-top: 100px;
+  z-index: 1900;
 }
-nav.active { left: 0; }
-
-/* Animation des liens du menu */
-nav ul { list-style: none; }
-nav ul li { 
-    opacity: 0; 
-    transform: translateX(-30px); 
-    transition: 0.4s ease;
+nav.active {
+  left: 0;
 }
-nav.active ul li { 
-    opacity: 1; 
-    transform: translateX(0); 
+nav.active ul li {
+  opacity: 1;
+  transform: translateX(0);
 }
-/* Délai pour l'apparition un par un */
-nav.active ul li:nth-child(1) { transition-delay: 0.1s; }
-nav.active ul li:nth-child(2) { transition-delay: 0.2s; }
-nav.active ul li:nth-child(3) { transition-delay: 0.3s; }
-nav.active ul li:nth-child(4) { transition-delay: 0.4s; }
-nav.active ul li:nth-child(5) { transition-delay: 0.5s; }
-
-nav ul li a { 
-    display: block; padding: 1.5rem 2rem; color: #fff; 
-    text-decoration: none; border-bottom: 1px solid #333; 
-    transition: 0.3s;
+nav.active ul li:nth-child(1) {
+  transition-delay: 0.1s;
 }
-nav ul li a:hover { color: #ff1900; padding-left: 2.5rem; background: #222; }
+nav.active ul li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+nav.active ul li:nth-child(3) {
+  transition-delay: 0.3s;
+}
+nav.active ul li:nth-child(4) {
+  transition-delay: 0.4s;
+}
+nav.active ul li:nth-child(5) {
+  transition-delay: 0.5s;
+}
+nav ul {
+  list-style: none;
+}
+nav ul li {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: 0.4s ease;
+}
+nav ul li a {
+  display: block;
+  padding: 1.5rem 2rem;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+  transition: 0.3s;
+}
+nav ul li a:hover {
+  color: #ff1900;
+  padding-left: 2.5rem;
+  background: #222;
+}
 
-/* Panier Image */
-.panier-img { width: 45px; height: 45px; transition: transform 0.3s ease; }
-.panier-img:hover { transform: scale(1.1) rotate(-5deg); }
+.panier-img {
+  width: 45px;
+  height: 45px;
+  transition: transform 0.3s ease;
+}
+.panier-img:hover {
+  transform: scale(1.1) rotate(-5deg);
+}
 
-/* Main Content */
-main { flex: 1 0 auto; }
+main {
+  flex: 1 0 auto;
+}
 
-/* Bouton Voir Plus (Style MechaLab) */
 .btn-voir-plus {
-    display: block; width: 250px; margin: 3rem auto; padding: 1.2rem;
-    background: #1a1a1a; color: white; text-align: center;
-    text-decoration: none; border-radius: 50px; font-weight: bold;
-     transition: 0.3s;
+  display: block;
+  width: 250px;
+  margin: 3rem auto;
+  padding: 1.2rem;
+  background: #1a1a1a;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: 0.3s;
 }
-.btn-voir-plus:hover { background: #ff1900; box-shadow: 0 0 15px rgba(231, 76, 60, 0.4); }
+.btn-voir-plus:hover {
+  background: #ff1900;
+  box-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
+}
 
-/* Footer */
-footer { background: #1a1a1a; padding: 20px 0; border-top: 1px solid #333; }
+footer {
+  background: #1a1a1a;
+  padding: 20px 0;
+  border-top: 1px solid #333;
+}
 
-.footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; color: #888; }
-.footer-menu { display: flex; list-style: none; gap: 20px; }
-.footer-menu a { color: white; text-decoration: none; text-transform: uppercase; font-size: 14px; }
-.footer-menu a:hover { color: #ff1900; }
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #888;
+}
 
-/* Style de l'icône de panier */
+.footer-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+.footer-menu a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.footer-menu a:hover {
+  color: #ff1900;
+}
+
 .panier-icon-link {
-    text-decoration: none;
-    color: #ffffff; /* Couleur blanche pour contraster avec le header sombre */
-    display: flex;
-    align-items: center;
-    transition: transform 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
-
 .panier-icon-link .material-symbols-outlined {
-    font-size: 35px; /* Taille de l'icône */
+  font-size: 35px;
 }
-
 .panier-icon-link:hover {
-    color: #ff1900; /* Devient rouge MechaLab au survol */
-    transform: scale(1.1); /* Petit effet de zoom */
+  color: #ff1900;
+  transform: scale(1.1);
 }
-
-/* --- Style du Logo avec effet de survol --- */
 
 .logo-hover-container {
-    position: relative;
-    display: inline-block;
-    height: 150px; /* Ajustez selon la hauteur souhaitée */
+  position: relative;
+  display: inline-block;
+  height: 150px;
+}
+.logo-hover-container:hover .logo-main {
+  opacity: 0;
+}
+.logo-hover-container:hover .logo-alt {
+  opacity: 1;
 }
 
 .logo-img {
-    height: 100%; /* L'image prend toute la hauteur du conteneur */
-    transition: opacity 0.4s ease-in-out; /* Transition douce pour l'effet */
-    display: block;
+  height: 100%;
+  transition: opacity 0.4s ease-in-out;
+  display: block;
 }
 
-/* Le logo alternatif est placé par-dessus le premier */
 .logo-alt {
+<<<<<<< HEAD
     position: absolute;
     top: 0;
     left: 0;
@@ -186,3 +259,10 @@ button {
 #nextBtn { right: 10px; }
 
 button:hover { background: rgba(0,0,0,0.8); }
+=======
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}/*# sourceMappingURL=site.css.map */
+>>>>>>> f15e360fe541323e0f819a05b18e0ba668fa8c0a
