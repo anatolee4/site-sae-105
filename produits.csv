@@ -1,9 +1,9 @@
 Image,ImageHover,Nom,Prix,Categorie
-img/produit4.png,img/produit4_hover.png,Titan Écarlate,149.99,nouveaute
-img/produit8.png,img/produit8_hover.png,Paladin Doré,169.99,nouveaute
-img/produit12.png,img/produit12_hover.png,Ombre Nocturne,144.99,nouveaute
-img/produit13.png,img/produit13_hover.png,Nébuleuse Pourpre,155.00,nouveaute
-img/produit1.png,img/produit1_hover.png,Chevalier Lumière,89.99,catalogue
-img/produit2.png,img/produit2_hover.png,Garde Royal,119.99,catalogue
-img/produit3.png,img/produit3_hover.png,Sentinelle Azur,95.99,catalogue
-img/produit5.png,img/produit5_hover.png,Lancier Blanc,79.99,catalogue
+img/produit4.png,img/produit4_hover.png,Titan Écarlate,120,nouveaute
+img/produit8.png,img/produit8_hover.png,Paladin Doré,120,nouveaute
+img/produit12.png,img/produit12_hover.png,Ombre Nocturne,110,nouveaute
+img/produit13.png,img/produit13_hover.png,Nébuleuse Pourpre,110,nouveaute
+img/produit1.png,img/produit1_hover.png,Chevalier Lumière,90,catalogue
+img/produit2.png,img/produit2_hover.png,Garde Royal,90,catalogue
+img/produit3.png,img/produit3_hover.png,Sentinelle Azur,70,catalogue
+img/image4.png,img/produit5_hover.png,Brainrot étincellant,67,catalogue
