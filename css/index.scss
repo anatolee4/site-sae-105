@@ -1,0 +1,42 @@
+main {
+    section {
+        &:first-of-type {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+
+            h2 {
+                color: white;
+                border-bottom: 2px solid white;
+            }
+
+            p {
+                color: white;
+            }
+        }
+
+        figure {
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+            video {
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        section {
+            &:first-of-type {
+                padding: 1.5rem;
+            }
+        }
+    }
+}
