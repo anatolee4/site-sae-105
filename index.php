@@ -11,8 +11,15 @@
     <?php include('include/menu.php'); ?>
     <?php include('include/fonctions.php'); ?>
     <main>
-        <div class="banner-home" style="width: 100%; height: 60vh; background: url('img/banner.jpg') no-repeat center center/cover;"></div>
-        <section style="padding: 4rem 2rem;">
+ <div class="video-hero" style="width: 100%; height: 60vh; position: relative; overflow: hidden; background: #000;">
+            <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                <source src="videos/presentation.mov" type="video/quicktime">
+                <source src="videos/presentation.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
+            
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); pointer-events: none;"></div>
+        </div>        <section style="padding: 4rem 2rem;">
             <h2 style="text-align: center; margin-bottom: 3rem; color: #1a1a1a; letter-spacing: 2px;">NOUVELLE COLLECTION</h2>
             <div class="produits-grid">
                 <?php

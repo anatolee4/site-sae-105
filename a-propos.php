@@ -10,15 +10,7 @@
     <?php include('include/menu.php'); ?>
     
     <main>
-        <div class="video-hero" style="width: 100%; height: 70vh; position: relative; overflow: hidden; background: #000;">
-            <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                <source src="videos/presentation.mov" type="video/quicktime">
-                <source src="videos/presentation.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la lecture de vidéos.
-            </video>
-            
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); pointer-events: none;"></div>
-        </div>
+       
 
         <section style="padding: 5rem 2rem; max-width: 900px; margin: auto;">
             <h1 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem; color: #1a1a1a; letter-spacing: 2px;">NOTRE CONCEPT</h1>
