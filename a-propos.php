@@ -9,8 +9,19 @@
     <?php include('include/entete.php'); ?>
     <?php include('include/menu.php'); ?>
     
+
+    
     <main>
-       
+     <div class="carousel-container">
+    <div class="carousel-slide">
+        <img src="img/produit1.png" alt="Produit 1">
+        <img src="img/details3.png" alt="Détails 3">
+        <img src="img/produit16.png" alt="Produit 16">
+    </div>
+
+    <button id="prevBtn">❮</button>
+    <button id="nextBtn">❯</button>
+</div>
 
         <section style="padding: 5rem 2rem; max-width: 900px; margin: auto;">
             <h1 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem; color: #1a1a1a; letter-spacing: 2px;">NOTRE CONCEPT</h1>
@@ -26,6 +37,7 @@
                 </p>
             </div>
         </section>
+        <script src="script.js"></script>
     </main>
 
     <?php include('include/pied-de-page.php'); ?>

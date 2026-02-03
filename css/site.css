@@ -141,4 +141,48 @@ footer { background: #1a1a1a; padding: 20px 0; border-top: 1px solid #333; }
 
 .logo-hover-container:hover .logo-alt {
     opacity: 1; /* Le logo alternatif devient visible */
+
 }
+
+
+
+
+
+
+
+.carousel-container {
+    width: 500px; /* À ajuster selon tes besoins */
+    margin: auto;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+}
+
+/* Boutons */
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#prevBtn { left: 10px; }
+#nextBtn { right: 10px; }
+
+button:hover { background: rgba(0,0,0,0.8); }
