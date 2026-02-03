@@ -1,3 +1,4 @@
+<?php include_once('include/fonctions.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,7 +10,6 @@
 <body>
     <?php include('include/entete.php'); ?>
     <?php include('include/menu.php'); ?>
-    <?php include('include/fonctions.php'); ?>
     
     <main style="padding-top: 100px; margin-bottom: 40px;">
         <h2 style="text-align: center; margin-bottom: 40px;">NOUVELLE COLLECTION</h2>
@@ -19,11 +19,12 @@
             $nouveautes = chargerProduits('nouveaute');
 
             foreach ($nouveautes as $p) {
+                // On passe uniquement le Nom dans l'URL pour que produit.php récupère tout le reste via le CSV
                 echo "
-                <div class='produit-card' onclick=\"location.href='produit.php?Nom=".urlencode($p['nom'])."&Prix={$p['prix']}&Image={$p['image']}'\">
+                <div class='produit-card' onclick=\"location.href='produit.php?Nom=".urlencode($p['nom'])."'\">
                     <div class='image-container'>
-                        <img src='{$p['image']}' class='img-main' alt='{$p['nom']}'>
-                        <img src='{$p['hover']}' class='img-hover' alt='{$p['nom']} Détail'>
+                        <img src='{$p['img1']}' class='img-main' alt='{$p['nom']}'>
+                        <img src='{$p['img2']}' class='img-hover' alt='{$p['nom']} Détail'>
                     </div>
                     <h3>" . htmlspecialchars($p['nom']) . "</h3>
                     <p class='prix'>".number_format($p['prix'], 2, ',', ' ')." €</p>

@@ -14,8 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nouveauProduit = [
             'nom'    => $_POST['nom'],
             'prix'   => floatval($_POST['prix']),
-            'image'  => $_POST['image'],
-            'taille' => $_POST['taille'] // L'option choisie dans le menu déroulant
+            'image'  => $_POST['image'] ?? 'img/produit1.png',
+            'taille' => $_POST['taille'] ?? '1/144 High Grade'
         ];
         $_SESSION['panier'][] = $nouveauProduit;
     }
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $index = intval($_POST['supprimer']);
         if (isset($_SESSION['panier'][$index])) {
             unset($_SESSION['panier'][$index]);
-            // Réindexation du tableau pour éviter les trous dans les clés
+            // Réindexation du tableau pour éviter les erreurs de clés
             $_SESSION['panier'] = array_values($_SESSION['panier']);
         }
     }
@@ -68,7 +68,7 @@ foreach ($_SESSION['panier'] as $item) {
                         
                         <div class="item-details">
                             <h3><?php echo htmlspecialchars($produit['nom']); ?></h3>
-                            <p class="item-taille">MODÈLE : <?php echo htmlspecialchars($produit['taille']); ?></p>
+                            <p class="item-taille">ÉCHELLE : <?php echo htmlspecialchars($produit['taille']); ?></p>
                             <p class="item-prix"><?php echo number_format($produit['prix'], 2, ',', ' '); ?> €</p>
                         </div>
                         

@@ -1,3 +1,4 @@
+<?php include_once('include/fonctions.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,7 +10,7 @@
 <body>
     <?php include('include/entete.php'); ?>
     <?php include('include/menu.php'); ?>
-    <?php include('include/fonctions.php'); ?>
+    
     <main style="padding-top: 100px;">
         <h2 style="text-align: center; margin-bottom: 40px;">NOTRE CATALOGUE COMPLET</h2>
         <div class="produits-grid">
@@ -17,18 +18,19 @@
             $produits = chargerProduits('tout');
             foreach ($produits as $p) {
                 echo "
-                <div class='produit-card' onclick=\"location.href='produit.php?Nom=".urlencode($p['nom'])."&Prix={$p['prix']}&Image={$p['image']}'\">
+                <div class='produit-card' onclick=\"location.href='produit.php?Nom=".urlencode($p['nom'])."'\">
                     <div class='image-container'>
-                        <img src='{$p['image']}' class='img-main'>
-                        <img src='{$p['hover']}' class='img-hover'>
+                        <img src='{$p['img1']}' class='img-main'>
+                        <img src='{$p['img2']}' class='img-hover'>
                     </div>
-                    <h3>{$p['nom']}</h3>
+                    <h3>" . htmlspecialchars($p['nom']) . "</h3>
                     <p class='prix'>".number_format($p['prix'], 2, ',', ' ')." €</p>
                 </div>";
             }
             ?>
         </div>
     </main>
+
     <?php include('include/pied-de-page.php'); ?>
 </body>
 </html>
