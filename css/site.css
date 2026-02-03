@@ -142,3 +142,4 @@ footer { background: #1a1a1a; padding: 20px 0; border-top: 1px solid #333; }
 .logo-hover-container:hover .logo-alt {
     opacity: 1; /* Le logo alternatif devient visible */
 }
+
