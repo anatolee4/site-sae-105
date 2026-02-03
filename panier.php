@@ -1,15 +1,12 @@
 <?php
 session_start();
 
-// Initialisation du panier s'il n'existe pas
 if (!isset($_SESSION['panier'])) {
     $_SESSION['panier'] = [];
 }
 
-// Gestion des actions POST (Ajout et Suppression)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    // Cas 1 : Ajout d'un produit depuis produit.php
     if (isset($_POST['nom']) && isset($_POST['prix'])) {
         $nouveauProduit = [
             'nom'    => $_POST['nom'],
@@ -20,18 +17,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['panier'][] = $nouveauProduit;
     }
     
-    // Cas 2 : Suppression d'un produit du panier
     if (isset($_POST['supprimer'])) {
         $index = intval($_POST['supprimer']);
         if (isset($_SESSION['panier'][$index])) {
             unset($_SESSION['panier'][$index]);
-            // Réindexation du tableau pour éviter les erreurs de clés
             $_SESSION['panier'] = array_values($_SESSION['panier']);
         }
     }
 }
 
-// Calcul du montant total du panier
+
 $total = 0;
 foreach ($_SESSION['panier'] as $item) {
     $total += $item['prix'];

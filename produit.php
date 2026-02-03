@@ -4,7 +4,7 @@ include_once('include/fonctions.php');
 $nomRecherche = $_REQUEST['Nom'] ?? '';
 $produitComplet = trouverProduitParNom($nomRecherche);
 
-// On récupère les données soit du CSV via le nom, soit des paramètres GET
+
 $nom = $produitComplet['nom'] ?? ($_REQUEST['Nom'] ?? 'Modèle Mecha');
 $prixBase = $produitComplet['prix'] ?? floatval($_REQUEST['Prix'] ?? 0);
 $images = [

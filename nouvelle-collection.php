@@ -15,11 +15,9 @@
         <h2 style="text-align: center; margin-bottom: 40px;">NOUVELLE COLLECTION</h2>
         <div class="produits-grid">
             <?php
-            // Chargement uniquement des produits marqués 'nouveaute'
             $nouveautes = chargerProduits('nouveaute');
 
             foreach ($nouveautes as $p) {
-                // On passe uniquement le Nom dans l'URL pour que produit.php récupère tout le reste via le CSV
                 echo "
                 <div class='produit-card' onclick=\"location.href='produit.php?Nom=".urlencode($p['nom'])."'\">
                     <div class='image-container'>

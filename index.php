@@ -21,7 +21,7 @@
         </div>
 
         <section style="padding: 4rem 2rem;">
-            <h2 style="text-align: center; margin-bottom: 3rem; color: #1a1a1a; letter-spacing: 2px;">NOUVELLE COLLECTION</h2>
+            <h2 style="text-align: center; margin-bottom: 3rem; color: #1a1a1a; letter-spacing: 2px; ">NOUVELLE COLLECTION</h2>
             <div class="produits-grid">
                 <?php
                 $nouveautes = chargerProduits('nouveaute');
