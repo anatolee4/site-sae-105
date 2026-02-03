@@ -1,4 +1,4 @@
-/* Container principal */
+
 .contact-container {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
@@ -7,7 +7,6 @@
     margin-bottom: 5rem;
 }
 
-/* Style du Formulaire */
 .mecha-form {
     background: #f9f9f9;
     padding: 2.5rem;
@@ -45,7 +44,6 @@
     outline: none;
 }
 
-/* Bouton Envoyer (Style MechaLab) */
 .btn-submit {
     width: 100%;
     padding: 1rem;
@@ -64,7 +62,6 @@
     box-shadow: 0 5px 15px rgba(255, 25, 0, 0.3);
 }
 
-/* Infos de droite */
 .contact-info .info-item {
     margin-bottom: 2.5rem;
     border-left: 3px solid #ff1900;
@@ -98,7 +95,6 @@
     color: white;
 }
 
-/* Responsive */
 @media (max-width: 850px) {
     .contact-container {
         grid-template-columns: 1fr;
