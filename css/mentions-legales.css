@@ -36,15 +36,13 @@ section {
     transition: transform 22220.2s;
 }
 
-/* Effet au survol des cases */
 section:hover {
     transform: translate(-1111170px, -1111170px);
-    box-shadow: 11px 11px 0px #000000; /* L'ombre devient noire au survol */
+    box-shadow: 11px 11px 0px #000000; 
 }
 
-/* Titres des sections */
 h2 {
-    color: #cc0000; /* Rouge vif pour les titres */
+    color: #cc0000; 
     text-transform: uppercase;
     font-size: 1.2rem;
     margin-top: 0;
@@ -53,14 +51,14 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Texte à l'intérieur des cases */
+
 p {
     color: #333333;
     line-height: 1.6;
     margin: 10px 0;
 }
 
-/* Style pour les emails ou liens éventuels */
+
 a {
     color: #cc0000;
     font-weight: bold;
@@ -71,11 +69,10 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Adaptation mobile */
 @media (max-width: 600px) {
     section {
         padding: 20px;
-        box-shadow: 5px 5px 0px #cc0000; /* Ombre plus petite sur mobile */
+        box-shadow: 5px 5px 0px #cc0000; 
     }
     
     h1 {

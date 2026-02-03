@@ -4,10 +4,10 @@ function chargerProduits($filtre = 'tout') {
     $fichier = __DIR__ . '/../produits.csv';
     
     if (file_exists($fichier) && ($handle = fopen($fichier, "r")) !== FALSE) {
-        fgetcsv($handle, 1000, ",", "\"", "\\"); // Sauter l'en-tête
+        fgetcsv($handle, 1000, ",", "\"", "\\"); 
         
         while (($data = fgetcsv($handle, 1000, ",", "\"", "\\")) !== FALSE) {
-            if (count($data) < 7) continue; // Sécurité si ligne incomplète
+            if (count($data) < 7) continue; 
             
             $p = [
                 'img1' => $data[0],

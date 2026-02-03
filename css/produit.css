@@ -1,6 +1,3 @@
-/* css/produit.css */
-
-/* Mise en page principale */
 .product-main {
     display: flex;
     gap: 40px;
@@ -10,7 +7,6 @@
     flex-wrap: wrap;
 }
 
-/* Galerie Verticale */
 .gallery-vertical {
     display: flex;
     flex-direction: column;
@@ -33,7 +29,6 @@
     transform: scale(1.05);
 }
 
-/* Zone de l'image principale */
 .image-display {
     flex: 2;
     min-width: 400px;
@@ -46,7 +41,6 @@
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
-/* Zone d'informations */
 .product-info {
     flex: 1.5;
     min-width: 320px;
@@ -79,7 +73,6 @@
     margin-bottom: 30px;
 }
 
-/* Formulaire et sélecteur */
 .label-select {
     font-weight: bold;
     display: block;
@@ -116,7 +109,6 @@
    box-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
 }
 
-/* Sections Description et Avis */
 .extra-section {
     max-width: 1300px;
     margin: 40px auto;
@@ -163,7 +155,6 @@
     margin-left: 10px;
 }
 
-/* Titre des suggestions */
 .suggestions-title {
     margin-bottom: 30px;
     text-transform: uppercase;
@@ -172,7 +163,6 @@
     color: #1a1a1a;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .product-main {
         flex-direction: column;
