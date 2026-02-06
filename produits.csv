@@ -1,9 +1,9 @@
 Img1,Img2,Img3,Img4,Nom,Prix,Categorie
 img/produit1.png,img/details1.1.png,img/details1.2.png,img/details1.3.png,Chevalier Lumière,109.99,nouveaute
 img/produit2.png,img/details2.1.png,img/details2.2.png,img/details2.3.png,Garde Nocturne,89.99,nouveaute
-img/produit3.png,img/details3.1.png,img/details3.2.png,img/details3.3.png,Sentinelle,95.99,nouveaute
-img/produit4.png,img/details4.1.png,img/details4.2.png,img/details4.3.png,Titan Écarlate,149.99,nouveaute
-img/produit5.png,img/details5.1.png,img/details5.2.png,img/details5.3.png,Chevalier Doré,79.99,catalogue
-img/produit6.png,img/details6.1.png,img/details6.2.png,img/details6.3.png,Commandant Noir,159.99,catalogue
-img/produit7.png,img/details7.1.png,img/details7.2.png,img/details7.3.png,Archer Vert,99.99,catalogue
-img/produit8.png,img/details8.1.png,img/details8.2.png,img/details8.3.png,Brainrot étincellant,69.99,catalogue
+img/produit3.png,img/details3.1.png,img/details3.2.png,img/details3.3.png,Sentinelle Classique,99.99,nouveaute
+img/produit4.png,img/details4.1.png,img/details4.2.png,img/details4.3.png,Garde Écarlate,89.99,nouveaute
+img/produit5.png,img/details5.1.png,img/details5.2.png,img/details5.3.png,Paladin Doré,99.99,catalogue
+img/produit6.png,img/details6.1.png,img/details6.2.png,img/details6.3.png,Soldat Lumière,139.99,catalogue
+img/produit7.png,img/details7.1.png,img/details7.2.png,img/details7.3.png,Soldat Classique,79.99,catalogue
+img/produit8.png,img/details8.1.png,img/details8.2.png,img/details8.3.png,Sentinelle V2,99.99,catalogue
