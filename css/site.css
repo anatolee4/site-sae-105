@@ -204,4 +204,50 @@ footer {
   top: 0;
   left: 0;
   opacity: 0;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  max-height: 400px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.carousel-container .carousel-slide {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+.carousel-container .carousel-slide img {
+  width: 100%;
+  flex-shrink: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+.carousel-container button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 10%;
+  transition: background 0.2s;
+}
+.carousel-container button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.carousel-container #prevBtn {
+  left: 10px;
+}
+.carousel-container #nextBtn {
+  right: 10px;
 }/*# sourceMappingURL=site.css.map */
