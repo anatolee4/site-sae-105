@@ -69,6 +69,9 @@ a {
     section {
         padding: 20px;
         box-shadow: 5px 5px 0px #cc0000;
+        &:hover {
+            transform: none;
+        }
     }
 
     h1 {

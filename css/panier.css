@@ -125,13 +125,26 @@ main h2 {
 
 @media (max-width: 768px) {
   .panier-item {
-    grid-template-columns: 80px 1fr;
+    grid-template-columns: 100px 1fr;
+    gap: 1rem;
+    padding: 1rem;
   }
   .item-actions {
     grid-column: span 2;
     text-align: right;
   }
   .panier-total {
+    margin-top: 2rem;
+    padding: 1.5rem;
     text-align: center;
+  }
+  .panier-total h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .btn-payer {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
   }
 }/*# sourceMappingURL=panier.css.map */

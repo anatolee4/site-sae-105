@@ -3,6 +3,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MechaLab - Accueil</title>
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/catalogue.css">
@@ -20,7 +21,7 @@
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); pointer-events: none;"></div>
         </div>
 
-        <section style="padding: 4rem 2rem;">
+        <section class="index-section" style="padding: 4rem 2rem;">
             <h2 style="text-align: center; margin-bottom: 3rem; color: #1a1a1a; letter-spacing: 2px; ">NOUVELLE COLLECTION</h2>
             <div class="produits-grid">
                 <?php

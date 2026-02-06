@@ -68,6 +68,9 @@ a:hover {
     padding: 20px;
     box-shadow: 5px 5px 0px #cc0000;
   }
+  section:hover {
+    transform: none;
+  }
   h1 {
     font-size: 1.8rem;
   }

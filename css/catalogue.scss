@@ -65,3 +65,30 @@
         opacity: 0;
     }
 }
+
+
+@media (max-width: 600px) {
+    .produits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0 10px;
+        margin-bottom: 50px;
+    }
+
+    .produit-card {
+        padding: 10px;
+        
+        h3 {
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+
+        .prix {
+            font-size: 1.1rem;
+        }
+
+        .image-container {
+            height: 180px;
+        }
+    }
+}

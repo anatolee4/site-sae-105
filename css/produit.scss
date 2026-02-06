@@ -166,14 +166,33 @@
 @media (max-width: 768px) {
     .product-main {
         flex-direction: column;
+        align-items: center;
+    }
+
+    .image-display {
+        min-width: 100%;
+        order: 1;
     }
 
     .gallery-vertical {
         flex-direction: row;
         justify-content: center;
+        order: 2;
+        width: 100%;
+        
+        img {
+            width: 70px;
+            height: 70px;
+        }
     }
 
-    .image-display {
+    .product-info {
+        order: 3;
         min-width: 100%;
+        padding: 20px;
+
+        h1 {
+            font-size: 1.8rem;
+        }
     }
 }

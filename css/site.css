@@ -250,4 +250,59 @@ footer {
 }
 .carousel-container #nextBtn {
   right: 10px;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 0 1rem;
+    height: 60px;
+  }
+  .logo-hover-container {
+    height: 100px;
+  }
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  .footer-menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+@media (max-width: 768px) {
+  header {
+    padding: 0 1rem;
+    height: 60px;
+  }
+  .logo-hover-container {
+    height: 100px;
+  }
+  .video-hero {
+    height: 40vh !important;
+    background: transparent !important;
+  }
+  .video-hero video {
+    display: block;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .index-section {
+    padding: 2rem 10px !important;
+  }
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  .footer-menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+@media (max-width: 400px) {
+  nav {
+    width: 100%;
+    left: -100%;
+  }
 }/*# sourceMappingURL=site.css.map */

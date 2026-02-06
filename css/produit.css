@@ -159,12 +159,28 @@
 @media (max-width: 768px) {
   .product-main {
     flex-direction: column;
+    align-items: center;
+  }
+  .image-display {
+    min-width: 100%;
+    order: 1;
   }
   .gallery-vertical {
     flex-direction: row;
     justify-content: center;
+    order: 2;
+    width: 100%;
   }
-  .image-display {
+  .gallery-vertical img {
+    width: 70px;
+    height: 70px;
+  }
+  .product-info {
+    order: 3;
     min-width: 100%;
+    padding: 20px;
+  }
+  .product-info h1 {
+    font-size: 1.8rem;
   }
 }/*# sourceMappingURL=produit.css.map */
