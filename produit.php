@@ -71,6 +71,10 @@ $images = [
                     <strong>Arnaud B.</strong> <span class="stars">★★★★★</span>
                     <p>"Design incroyable, le montage est un pur plaisir."</p>
                 </div>
+                <div class="review-card">
+                    <strong>Magalie N.</strong> <span class="stars">★★★★★</span>
+                    <p>"Superbe marque les développeurs sont vraiment doués"</p>
+                </div>
             </div>
         </div>
 
